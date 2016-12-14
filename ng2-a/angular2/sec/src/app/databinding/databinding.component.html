@@ -1,0 +1,14 @@
+<h1>string</h1>
+<span>{{text}}</span>
+
+<h4>property</h4>
+<input [value]="name">
+
+
+<hr>
+<span>Custom event</span>
+
+<fa-event-binding (clicked)="onClick($event)"></fa-event-binding>
+<renamed-event-binding (clickable)="onClick($event)"></renamed-event-binding>
+
+<app-twoway-binding></app-twoway-binding>

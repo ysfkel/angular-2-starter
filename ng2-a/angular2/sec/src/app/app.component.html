@@ -1,0 +1,29 @@
+<h1>
+  {{title}}
+  <app-yusuf></app-yusuf>
+  <app-other>
+     <div>
+       hello yall
+     </div>
+  </app-other>
+  <app-other>
+       <div>
+         helo buddy
+       </div>
+  </app-other>
+     <br>
+  <app-databinding></app-databinding>
+
+  <app-lyfe-cycle *ngIf="!delete" [bindable]="boundValue">
+    <p #boundContent>
+        {{test}}
+    </p>
+  </app-lyfe-cycle>
+  <br>
+  <button (click)="delete=true"> click me to call OnDestroy life cycle event,view result in console</button>
+  <button (click)="test='change value'">click executes doCheck and afterContentChecked and afterViewChecked</button>
+  <button (click)="boundValue=2000">click to change binding</button>
+  
+  
+  
+</h1>

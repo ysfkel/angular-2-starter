@@ -1,0 +1,55 @@
+<div class="ui raised segment">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="ui form">
+    <div class="field">
+      <label>
+                      SKU
+                   </label>
+      <input type="text" placeholder="sku" name="sku" ngModel="{{sku}}" />
+    </div>
+    <button type="submit" class="ui button">save</button>
+  </form>
+</div>
+
+
+<div class="ui raised segment">
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="ui form">
+    <div class="field" [class.error]="!skuAbs.valid && skuAbs.touched">
+      <label>sku</label>
+      <input type="text" placeholder="sku" [formControl]="myForm.controls['sku']">
+    </div>
+
+    <div class="field" [class.error]="!myForm.controls['name'].valid && myForm.controls['name'].touched">
+      <label for="">Name</label>
+      <input type="text" placeholder="name" [formControl]="myForm.controls['name']">
+    </div>
+
+    <div *ngIf="!skuAbs.valid" class="field">
+      <div class="ui error message">
+        sku is invalid
+      </div>
+    </div>
+
+      <div *ngIf="!skuAbs.valid" class="field">
+      <div class="ui error message">
+        sku is invalid
+      </div>
+    </div>
+
+
+
+    <div *ngIf="skuAbs.hasError('required')" class="field">
+      <div class="ui error message">
+        sku is required
+      </div>
+    </div>
+     <div *ngIf="skuAbs.hasError('invalidSku')" class="field">
+      <div class="ui error message">
+        sku is not invalid (skuValidator)
+      </div>
+    </div>
+
+    <button type="submit" class="ui button">save</button>
+  </form>
+</div>
+

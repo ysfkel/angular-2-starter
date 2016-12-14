@@ -1,0 +1,61 @@
+<h1>Attribute directives</h1>
+<p>ngClass / ngStyle</p>
+
+<div [ngClass]="{border:false,background:true}"></div>
+<h2>using property binding to achieve thesame</h2>
+<div [class.border]="true"></div>
+
+
+<h2>ng style</h2>
+<div [ngStyle]="{'border':'1px solid red','background':'pink'}"></div>
+
+
+<h2>Custom directive</h2>
+<div [highlight]="'yellow'" [defaultColor]="'blue'">Some text</div>
+
+
+<h2>Structural directives</h2>
+<span>*ngIf</span>
+<div *ngIf="switch===true">Conditonal test</div>
+
+<template [ngIf]="switch">
+    <div>
+       Conditional text 2
+    </div>
+</template>
+<button (click)="onSwitch($event)">Swich</button>
+
+<br>
+<span>*ngFor</span>
+<ul>
+  <li *ngFor="let item of items;let i=index">
+   (index: {{i}} )  {{item}}
+  </li>
+</ul>
+
+<hr>
+<span>ngSwitch</span>
+<div [ngSwitch]="switchCondition">
+  <div *ngSwitchWhen="10">10</div>
+  <div *ngSwitchWhen="20">20</div>
+  <div *ngSwitchWhen="30">30</div>
+  <div *ngSwitchWhen="40">40</div>
+  <div *ngSwitchDefault>Default</div>
+</div>
+ <p>or</p>
+
+<p [ngSwitch]="switchCondition">
+  <template [ngSwitchWhen]="10">10</template>
+  <template [ngSwitchWhen]="20">20</template>
+  <template [ngSwitchWhen]="30">30</template>
+  <template [ngSwitchWhen]="40">40</template>
+  <template ngSwitchDefault>Default</template>
+</p>
+
+<hr>
+<h2>unless, custom directive</h2>
+<div *unless="switch">
+   unless condition text (click switch button to show text)
+</div>
+
+<br><br><br><br><br><br>

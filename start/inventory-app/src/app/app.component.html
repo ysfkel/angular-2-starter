@@ -1,0 +1,37 @@
+<div>
+  <input type="text" name="color" value="{{color}}" #colorprop>
+
+  <div class="ui input">
+    <input type="text" name="fontSize" value="{{fontSize}}" #fontinput>
+  </div>
+
+  <button (click)="apply(colorprop,fontinput)">text</button>
+
+</div>
+
+<div [ngClass]="{bordered:true}">hello this is ngClass</div>
+
+<div>
+  <span [ngStyle]="{color: color}" [style.font-size.px]="font">
+red text
+      </span>
+</div>
+
+<h2 ngNonBindable>{{myvar}}</h2>
+
+
+
+
+<div [ngSwitch]="myvar">
+  <div *ngSwitchCase="'B'" [style.color]="color">B</div>
+  <div *ngSwitchCase="'A'" [ngStyle]="{color:color}">A</div>
+  <div *ngSwitchCase="'C'" [ngStyle]="{color:'blue'}">C</div>
+  <div *ngSwitchDefault>Default</div>
+</div>
+
+
+
+<div class="inventory-app">
+  <product-list [productList]="products" (onProductSelected)="handleSelectedProduct($event)">
+  </product-list>
+</div>
